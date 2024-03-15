@@ -1,0 +1,35 @@
+# ex3.
+def even(liste):
+    return [i for i in liste if i % 2 == 0]
+numbers=list(range(4,31))
+print("Your list is",numbers)
+new_list=even(numbers)
+print("Your new list is",new_list)
+# ex.4
+numbers=(4,6,8,24,12,2)
+print("Your list is",numbers)
+max_list=max(numbers)
+print(max_list)
+
+# ex.5
+
+tuple1=(10,20,30,40,50)
+print(tuple1)
+inverse_tuple=(tuple1[4],tuple1[3],tuple1[2],tuple1[1],tuple1[0])
+print(inverse_tuple)
+
+
+def reverse_tuple(tuple_in):
+    return tuple_in[::-1]
+
+# Example usage
+print("Original tuple:", tuple1)
+
+inverse_tuple = reverse_tuple(tuple1)
+print("Reversed tuple:", inverse_tuple)
+
+# ex 6
+
+tuple1 = ("Orange", [10, 20, 30], (5, 15, 25))
+print(tuple1)
+print(tuple1[1][1])
