@@ -1,0 +1,121 @@
+# finger exercice 4 
+
+# ex2 / 3
+
+class Person (object):# (object) indicates that Person is a subclass of the built-in Python class object. object is important because it is base classe for all classes
+    def __init__(self,name,age,size,weight): # self is a reference to current instance , an instance is a specific realisation of the classe
+        self.age = age
+        self.name = name
+        self.size = size 
+        self.weight = weight
+    def get_name(self): # Each method takes only one parameter, self, which refers to the instance of the class.
+        return self.name
+    def get_age(self):
+        return self.age
+    def get_size(self):
+        return self.size
+    def get_weight(self):
+        return self.weight
+    def greetings_function(self):
+        return "Greeting to this person:"+ self.representation() # we have insered this function for this object 
+    def representation(self):
+        return str(self.name)+", age : "+str(self.age)+" ,size in cm :"+str(self.size)+" ,weight in kg. : "+str(self.weight)
+    
+
+person1=Person("Isaac",23,182,75)
+print(person1.representation())
+print(person1.age)
+person2=Person("Coco",22,163,60)
+print(person2.representation())
+def love_function(age1,age2):
+    if age1==age2:
+        print("Coco loves Isaac")
+    else :
+        print("Coco loves Isaac")
+print(love_function(person1.age,person2.age))
+print(person1.greetings_function())
+
+
+# ex 4 
+import math
+pi_value = math.pi
+class Circle(object):
+    def __init__(self,radius): # put doble _ to have correct init function, _init__, you typically set up instance attributes by assigning values to self.attribute_name. 
+        #These attributes define the state of the object and can vary from one instance to another.
+        self.radius=radius
+    def get_radius(self):
+        return self.radius
+    def area_circle(self):
+        area=pi_value*self.radius**2
+        return "Area of the circle is " + str(area) +" cm squared"
+
+circle1=Circle(5)
+print(circle1.area_circle())
+    
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+# Creating an instance of the Person class
+person1 = Person("Alice", 30)
+print(person1.name)   
+
+
+
+
+# ex 5
+
+
+#The “self” parameter is a reference to the current instance of the 
+#class, and is used to access variables that belongs to the class.
+#It does not have to be named self , you can call it whatever you 
+#like, but it has to be the first parameter of any function in the class:
+#→ Use the words mysillyobject and abc instead of self#
+
+
+# ex 6
+#Write a Python class to implement pow(x, n)
+class number_powered(object):
+    def __init__(self,x,n):
+        self.x=x
+        self.n=n
+    def get_x(self):
+        return self.x
+    def get_n(self):
+        return self.n
+    def power_function(self):
+        powered=self.x**self.n
+        return "X powered to n is equal to "+str(powered)
+a=number_powered(5,2)
+print(a.power_function())
+b=number_powered(5,-2)
+c=number_powered(5,0)
+print(b.power_function())
+print(c.power_function())
+
+# ex7 
+
+class NombreRom(object):
+    def __init__(self):
+        self.rom_val = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+# conversion with dictionary 
+    def conversion(self, roman_numeral): #
+        total = 0
+        prev_value = 0
+        for char in reversed(roman_numeral):
+            value = self.rom_val[char]
+            if value < prev_value:
+                total -= value
+            else:
+                total += value
+            prev_value = value
+        return total
+
+# Example usage:
+converter = NombreRom()
+print(converter.conversion('III'))  # Output: 3
+print(converter.conversion('IV'))   # Output: 4
+print(converter.conversion('IX'))   # Output: 9
+print(converter.conversion('LVIII'))# Output: 58
+print(converter.conversion('MCMXCIV'))# Output: 1994
